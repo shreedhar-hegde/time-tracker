@@ -18,7 +18,7 @@ export default function DialogComponent({ open, onClose, setOpen }) {
 
   const addNewTask = () => {
     setOpen(false);
-    addTask({ taskId: "taskId", text: newTask });
+    addTask(newTask);
     setNewTask("");
   };
 

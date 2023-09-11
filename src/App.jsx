@@ -64,13 +64,14 @@ function App() {
             minHeight: "min-content",
           }}
         >
-          {tasks.map((ele) => (
-            <CardComponent
-              totalTime={updateTotalTime}
-              key={ele.taskId}
-              task={ele}
-            />
-          ))}
+          {tasks &&
+            tasks.map((ele) => (
+              <CardComponent
+                totalTime={updateTotalTime}
+                key={ele.id}
+                task={ele}
+              />
+            ))}
         </div>
       </div>
       <div

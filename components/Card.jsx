@@ -42,8 +42,8 @@ const CardComponent = ({ task, totalTime }) => {
     setHistory((prevArray) => [...prevArray, event]);
   }, [isRunning]);
 
-  const removeTask = (taskId) => {
-    const filteredTasks = tasks.filter((task) => task.taskId !== taskId);
+  const removeTask = (id) => {
+    const filteredTasks = tasks.filter((task) => task.id !== id);
     setTasks(filteredTasks);
   };
 
@@ -148,7 +148,7 @@ const CardComponent = ({ task, totalTime }) => {
               color="#ED5050"
               size="small"
               aria-label="remove"
-              onClick={() => removeTask(task.taskId)}
+              onClick={() => removeTask(task.id)}
             >
               X
             </Fab>
