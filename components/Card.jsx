@@ -7,9 +7,12 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Fab } from "@mui/material";
 import { useStopwatch } from "react-timer-hook";
-import { memo, useEffect, useRef, useState } from "react";
+import { memo, useContext, useEffect, useRef, useState } from "react";
+import { TasksContext } from "../src/TasksContext";
 
 const CardComponent = ({ task, totalTime }) => {
+  const { tasks, setTasks } = useContext(TasksContext);
+
   const { seconds, minutes, hours, days, start, pause, isRunning } =
     useStopwatch({
       autoStart: false,
@@ -38,6 +41,11 @@ const CardComponent = ({ task, totalTime }) => {
         };
     setHistory((prevArray) => [...prevArray, event]);
   }, [isRunning]);
+
+  const removeTask = (taskId) => {
+    const filteredTasks = tasks.filter((task) => task.taskId !== taskId);
+    setTasks(filteredTasks);
+  };
 
   return (
     <Card
@@ -136,7 +144,12 @@ const CardComponent = ({ task, totalTime }) => {
               </Button>
             )}
 
-            <Fab color="#ED5050" size="small" aria-label="remove">
+            <Fab
+              color="#ED5050"
+              size="small"
+              aria-label="remove"
+              onClick={() => removeTask(task.taskId)}
+            >
               X
             </Fab>
           </div>
