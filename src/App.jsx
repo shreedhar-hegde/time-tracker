@@ -39,7 +39,7 @@ function App() {
       }}
     >
       <div>
-        <AppBarComponent seconds={totalTime - 4} style={{ height: "20%" }} />
+        <AppBarComponent seconds={totalTime - 1} style={{ height: "20%" }} />
       </div>
 
       <div

@@ -6,9 +6,15 @@ import IconButton from "@mui/material/IconButton";
 import { Typography } from "@mui/material";
 
 export default function AppBarComponent({ seconds }) {
-  const h = Math.floor(seconds / 3600);
-  const m = Math.floor((seconds % 3600) / 60);
-  const s = Math.floor((seconds % 3600) % 60);
+  const h = Math.floor(seconds / 3600) > 0 ? Math.floor(seconds / 3600) : 0;
+  const m =
+    Math.floor((seconds % 3600) / 60) > 0
+      ? Math.floor((seconds % 3600) / 60)
+      : 0;
+  const s =
+    Math.floor((seconds % 3600) % 60) > 0
+      ? Math.floor((seconds % 3600) % 60)
+      : 0;
 
   return (
     <Box sx={{ flexGrow: 1 }}>
